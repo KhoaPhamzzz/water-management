@@ -1,17 +1,17 @@
 <div class="min-h-screen flex items-center justify-center bg-gradient-to-l from-blue-900 via-blue-700 to-blue-500">
-    <div>
-        <div class="wrapper max-w-md w-full bg-white p-8 rounded-xl shadow-lg">
+    <div class="max-w-md w-full">
+        <div class="wrapper bg-white p-8 rounded-xl shadow-lg">
             <div class="title-text flex w-full justify-center mb-6">
                 <div class="title text-2xl font-semibold text-center">{{ title }}</div>
             </div>
             <div class="form-container">
                 <div class="slide-controls relative flex justify-between mb-6">
                     <button id="loginBtn"
-                        class="slide login w-1/2 text-white py-2 rounded-l-xl relative z-20">Login</button>
+                        class="slide login w-1/2 text-white py-2 rounded-l-xl relative z-20 hover:shadow-lg transition-shadow">Login</button>
                     <button id="signupBtn"
                         class="slide signup w-1/2 text-black py-2 rounded-r-xl relative z-20">Signup</button>
                     <div id="sliderTab"
-                        class="slider-tab absolute h-full w-1/2 left-0 bg-blue-800 rounded-xl transition-all duration-500 ease-out">
+                        class="slider-tab absolute h-full w-1/2 left-0 bg-blue-600 rounded-xl transition-all duration-500 ease-out">
                     </div>
                 </div>
                 <div class="form-inner">
@@ -72,7 +72,7 @@
         <!-- Test accounts dialog box -->
         <div class="wrapper bg-white p-8 rounded-xl shadow-lg mt-4">
             <p class="font-bold text-center mb-2">Test Accounts:</p>
-            <div>
+            <div class="text-center">
                 <p><span class="font-semibold">Admin:</span> Admin&#64;test.com / 1234admin</p>
                 <p><span class="font-semibold">User:</span> User&#64;test.com / 1234user</p>
             </div>
