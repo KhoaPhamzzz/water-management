@@ -1,0 +1,65 @@
+<div class="min-h-screen flex items-center justify-center bg-gradient-to-l from-blue-900 via-blue-800 to-blue-700">
+    <div>
+        <div class="wrapper max-w-md w-full bg-white p-8 rounded-xl shadow-lg">
+            <div class="title-text flex w-full justify-center mb-6">
+                <div class="title text-2xl font-semibold text-center">Login Form</div>
+            </div>
+            <div class="form-container">
+                <div class="slide-controls relative flex justify-between mb-6">
+                    <button id="loginBtn"
+                        class="slide login w-1/2 text-white py-2 rounded-l-xl relative z-20">Login</button>
+                    <button id="signupBtn"
+                        class="slide signup w-1/2 text-black py-2 rounded-r-xl relative z-20">Signup</button>
+                    <div id="sliderTab"
+                        class="slider-tab absolute h-full w-1/2 left-0 bg-blue-800 rounded-xl transition-all duration-500 ease-out">
+                    </div>
+                </div>
+                <div class="form-inner">
+                    <form id="loginForm" class="space-y-4">
+                        <div class="field">
+                            <input type="text" placeholder="Email Address"
+                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none">
+                        </div>
+                        <div class="field">
+                            <input type="password" placeholder="Password"
+                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none">
+                        </div>
+                        <div class="pass-link">
+                            <a href="#" class="text-blue-600 hover:underline">Forgot password?</a>
+                        </div>
+                        <div class="field">
+                            <button type="submit"
+                                class="w-full py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">Login</button>
+                        </div>
+                    </form>
+                    <form id="signupForm" class="space-y-4 hidden">
+                        <div class="field">
+                            <input type="text" placeholder="Email Address"
+                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none">
+                        </div>
+                        <div class="field">
+                            <input type="password" placeholder="Password"
+                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none">
+                        </div>
+                        <div class="field">
+                            <input type="password" placeholder="Confirm Password"
+                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none">
+                        </div>
+                        <div class="field">
+                            <button type="submit"
+                                class="w-full py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">Signup</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- Test accounts dialog box -->
+        <div class="wrapper bg-white p-8 rounded-xl shadow-lg mt-4">
+            <p class="font-bold text-center mb-2">Test Accounts:</p>
+            <div>
+                <p><span class="font-semibold">Admin:</span> Admin&#64;test.com / 1234admin</p>
+                <p><span class="font-semibold">User:</span> User&#64;test.com / 1234user</p>
+            </div>
+        </div>
+    </div>
+</div>
