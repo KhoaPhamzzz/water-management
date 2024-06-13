@@ -5,8 +5,6 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common'; 
 import { RouterModule, Router } from '@angular/router';
 
-
-
 @Component({
   selector: 'app-login',
   standalone: true,
@@ -24,32 +22,55 @@ export class LoginComponent implements AfterViewInit {
   faEyeSlash = faEyeSlash;
   passwordVisible: boolean = false;
   errorMessage: string = '';
+  rememberMe: boolean = false;
 
-  constructor(private router: Router) {}  
+  constructor(private router: Router) {}
 
   togglePasswordVisibility() {
     this.passwordVisible = !this.passwordVisible;
   }
 
+  ngOnInit() {
+    this.loadCredentials();
+  }
+
+  loadCredentials() {
+    const savedCredentials = localStorage.getItem('credentials');
+    if (savedCredentials) {
+      const credentials = JSON.parse(savedCredentials);
+      (document.getElementById('emailInput') as HTMLInputElement).value = credentials.email;
+      (document.getElementById('passwordInput') as HTMLInputElement).value = credentials.password;
+      this.rememberMe = true;
+    }
+  }
+
+  saveCredentials(email: string, password: string) {
+    if (this.rememberMe) {
+      localStorage.setItem('credentials', JSON.stringify({ email, password }));
+    } else {
+      localStorage.removeItem('credentials');
+    }
+  }
 
   validateForm() {
     const email = (document.getElementById('emailInput') as HTMLInputElement).value;
     const password = (document.getElementById('passwordInput') as HTMLInputElement).value;
     const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
-  
-    // Assuming validation logic here
+
     if (!email || !password) {
       this.errorMessage = 'You must enter both username and password to continue.';
       return false;
     } else if (!emailRegex.test(email)) {
       this.errorMessage = 'Please enter a valid email address.';
       return false;
-    }else if (email === 'Admin@test.com' && password === '1234admin') {
-      localStorage.setItem('isAuthenticated', 'true');  // Set authentication flag
+    } else if (email === 'Admin@test.com' && password === '1234admin') {
+      this.saveCredentials(email, password);
+      localStorage.setItem('isAuthenticated', 'true');
       this.router.navigate(['/layout/dashboard'], { queryParams: { user: 'admin' } });
       return true;
     } else if (email === 'User@test.com' && password === '1234user') {
-      localStorage.setItem('isAuthenticated', 'true');  // Set authentication flag
+      this.saveCredentials(email, password);
+      localStorage.setItem('isAuthenticated', 'true');
       this.router.navigate(['/layout/dashboard'], { queryParams: { user: 'user' } });
       return true;
     } else {
@@ -57,11 +78,10 @@ export class LoginComponent implements AfterViewInit {
       return false;
     }
   }
-  
+
   onSubmit() {
-    this.validateForm();  // Call validateForm which already includes navigation logic
+    this.validateForm();
   }
-  
 
   ngAfterViewInit() {
     const loginBtn = document.getElementById('loginBtn') as HTMLButtonElement;
@@ -70,7 +90,12 @@ export class LoginComponent implements AfterViewInit {
     const signupForm = document.getElementById('signupForm') as HTMLFormElement;
     const sliderTab = document.getElementById('sliderTab') as HTMLDivElement; 
     const submitBtn = document.getElementById('loginSubmit') as HTMLButtonElement;
-  
+    const rememberMeCheckbox = document.getElementById('rememberMeCheckbox') as HTMLInputElement;
+
+    rememberMeCheckbox.onchange = () => {
+      this.rememberMe = rememberMeCheckbox.checked;
+    };
+
     signupBtn.onclick = () => {
       console.log('Signup button clicked');
       loginForm.classList.add('hidden');
@@ -82,7 +107,7 @@ export class LoginComponent implements AfterViewInit {
       signupBtn.classList.add('text-white');
       this.title = 'Sign up';
     };
-  
+
     loginBtn.onclick = () => {
       console.log('Login button clicked');
       signupForm.classList.add('hidden');
@@ -94,15 +119,15 @@ export class LoginComponent implements AfterViewInit {
       loginBtn.classList.add('text-white');
       this.title = 'Welcome Back!';
     };
-  
+
     if (!submitBtn) {
       console.error('Submit button not found!');
       return;
     }
-  
-    submitBtn.onclick = (errorMessage) => {
-      errorMessage.preventDefault();
-      this.validateForm(); // Now directly validates and navigates
+
+    submitBtn.onclick = (event) => {
+      event.preventDefault();
+      this.validateForm();
     };
   }
-  }
+}

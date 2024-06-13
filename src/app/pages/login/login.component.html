@@ -32,8 +32,16 @@
                                 class="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-400 cursor-pointer"
                                 (click)="togglePasswordVisibility()"></fa-icon>
                         </div>
-                        <div class="pass-link text-right mb-4">
-                            <a href="#" class="text-xs text-blue-600 hover:underline">Forgot password?</a>
+                        <div class="flex justify-between items-center mb-4">
+                            <div class="remember-me flex items-center">
+                                <input id="rememberMeCheckbox" type="checkbox"
+                                    class="ml-1 form-checkbox h-3 w-3 border border-gray-200 text-blue-600">
+                                <label for="rememberMeCheckbox"
+                                    class="ml-2 text-xs text-gray-600 cursor-pointer">Remember me</label>
+                            </div>
+                            <div class="pass-link">
+                                <a href="#" class="text-xs text-blue-600 hover:underline">Forgot password?</a>
+                            </div>
                         </div>
                         <div class="field">
                             <button id="loginSubmit" type="submit"
