@@ -1,7 +1,8 @@
 import { Routes } from '@angular/router';
 import { LoginComponent } from 'app/pages/login/login.component';
-import { LayoutComponent } from './pages/layout/layout.component';
-import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { LayoutComponent } from 'app/pages/layout/layout.component';
+import { DashboardComponent } from 'app/pages/dashboard/dashboard.component';
+import { AuthGuard } from './guards/auth.guard'; 
 
 export const routes: Routes = [
     {
@@ -14,6 +15,7 @@ export const routes: Routes = [
     {
         path: 'layout',
         component:LayoutComponent, 
+        canActivate: [AuthGuard],  // Protect the entire layout
         children: [
             {
                 path: 'dashboard',
@@ -22,3 +24,4 @@ export const routes: Routes = [
         ]
     }
 ];
+

@@ -7,25 +7,26 @@
             <div class="form-container">
                 <div class="slide-controls relative flex justify-between mb-6">
                     <button id="loginBtn"
-                        class="slide login w-1/2 text-white py-2 rounded-l-xl relative z-20 hover:shadow-lg transition-shadow">Login</button>
+                        class="slide login w-1/2 text-white py-2 rounded-l-xl relative z-20 hover:shadow-lg">Login</button>
                     <button id="signupBtn"
-                        class="slide signup w-1/2 text-black py-2 rounded-r-xl relative z-20">Signup</button>
+                        class="slide signup w-1/2 text-black py-2 rounded-r-xl relative z-20 hover:shadow-lg">Signup</button>
                     <div id="sliderTab"
                         class="slider-tab absolute h-full w-1/2 left-0 bg-blue-600 rounded-xl transition-all duration-500 ease-out">
                     </div>
                 </div>
                 <div class="form-inner">
-                    <form id="loginForm" class="">
+                    <form id="loginForm" (ngSubmit)="onSubmit()">
                         <div class="field relative mb-4">
                             <fa-icon [icon]="faEnvelope"
                                 class="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-400"></fa-icon>
-                            <input type="text" placeholder="Email Address"
+                            <input id="emailInput" type="text" placeholder="Email Address"
                                 class="w-full px-10 py-2 border border-gray-300 rounded-lg focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none">
                         </div>
                         <div class="field relative">
                             <fa-icon [icon]="faLock"
                                 class="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-400"></fa-icon>
-                            <input [type]="passwordVisible ? 'text' : 'password'" placeholder="Password"
+                            <input id="passwordInput" [type]="passwordVisible ? 'text' : 'password'"
+                                placeholder="Password"
                                 class="w-full px-10 py-2 border border-gray-300 rounded-lg focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none">
                             <fa-icon [icon]="passwordVisible ? faEyeSlash : faEye"
                                 class="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-400 cursor-pointer"
@@ -35,10 +36,13 @@
                             <a href="#" class="text-xs text-blue-600 hover:underline">Forgot password?</a>
                         </div>
                         <div class="field">
-                            <button type="submit"
-                                class="w-full py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">Login</button>
+                            <button id="loginSubmit" type="submit"
+                                class="w-full py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">Login
+                            </button>
                         </div>
                     </form>
+                    <div *ngIf="errorMessage" class="text-red-500 text-center mt-4">{{ errorMessage }}</div>
+
                     <form id="signupForm" class="space-y-4 hidden">
                         <div class="field relative">
                             <fa-icon [icon]="faUser"
