@@ -1,17 +1,31 @@
-<div class="min-h-screen flex items-center justify-center bg-gradient-to-l from-blue-900 via-blue-700 to-blue-500">
-    <div class="max-w-md w-full">
-        <div class="wrapper bg-white p-8 rounded-xl shadow-lg">
+<div class="min-h-screen flex flex-col relative">
+    <!-- Background Image Container - Half Screen Height -->
+    <div class="background-image h-1/2 w-full absolute top-0 left-0 z-10">
+        <img src="/assets/images/waterback.jpg" alt="Background Image"
+            class="h-full w-full object-cover rounded-2xl p-2">
+    </div>
+
+    <!-- Main Content Container -->
+    <div class="flex flex-col items-center justify-center flex-grow w-full px-4 relative z-30">
+        <!-- Title Container - Moved Up -->
+        <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-20 glow-effect">
+            Water Management
+        </h1>
+
+        <!-- Form Container -->
+        <div class="max-w-md w-full bg-white p-6 sm:p-8 rounded-xl shadow-lg mt-4">
             <div class="title-text flex w-full justify-center mb-6">
-                <div class="title text-2xl font-semibold text-center">{{ title }}</div>
+                <div class="title text-xl sm:text-2xl md:text-3xl font-semibold text-center text-gray-400">{{ title }}
+                </div>
             </div>
             <div class="form-container">
                 <div class="slide-controls relative flex justify-between mb-6">
                     <button id="loginBtn"
-                        class="slide login w-1/2 text-white py-2 rounded-l-xl relative z-20 hover:shadow-lg">Login</button>
+                        class="slide login w-1/2 py-2 rounded-l-xl relative z-20 hover:shadow-lg text-gray-400">Login</button>
                     <button id="signupBtn"
-                        class="slide signup w-1/2 text-black py-2 rounded-r-xl relative z-20 hover:shadow-lg">Signup</button>
+                        class="slide signup w-1/2 text-gray-400 py-2 rounded-r-xl relative z-20 hover:shadow-lg">Signup</button>
                     <div id="sliderTab"
-                        class="slider-tab absolute h-full w-1/2 left-0 bg-blue-600 rounded-xl transition-all duration-500 ease-out">
+                        class="slider-tab absolute h-full w-1/2 left-0 bg-gradient-to-r from-CustomBlue1 via-CustomBlue2 to-CustomBlue3 rounded-xl transition-all duration-500 ease-out">
                     </div>
                 </div>
                 <div class="form-inner">
@@ -40,17 +54,15 @@
                                     class="ml-2 text-xs text-gray-600 cursor-pointer">Remember me</label>
                             </div>
                             <div class="pass-link">
-                                <a href="#" class="text-xs text-blue-600 hover:underline">Forgot password?</a>
+                                <a href="#" class="text-xs text-CustomBlue1 hover:underline">Forgot password?</a>
                             </div>
                         </div>
                         <div class="field">
                             <button id="loginSubmit" type="submit"
-                                class="w-full py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">Login
-                            </button>
+                                class="w-full py-2 bg-gradient-to-r from-CustomBlue1 via-CustomBlue2 to-CustomBlue3 text-white rounded-lg hover:bg-gradient-to-r hover:from-CustomBlue1Dark hover:via-CustomBlue2Dark hover:to-CustomBlue3Dark">Login</button>
                         </div>
                     </form>
                     <div *ngIf="errorMessage" class="text-red-500 text-center mt-4">{{ errorMessage }}</div>
-
                     <form id="signupForm" class="space-y-4 hidden">
                         <div class="field relative">
                             <fa-icon [icon]="faUser"
@@ -75,19 +87,51 @@
                         </div>
                         <div class="field">
                             <button type="submit"
-                                class="w-full py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">Signup</button>
+                                class="w-full py-2 bg-gradient-to-r from-CustomBlue1 via-CustomBlue2 to-CustomBlue3 text-white rounded-lg transition-all duration-300 ease-in-out hover:bg-gradient-to-r hover:from-CustomBlue1Dark hover:via-CustomBlue2Dark hover:to-CustomBlue3Dark">Signup</button>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
+
         <!-- Test accounts dialog box -->
-        <div class="wrapper bg-white p-8 rounded-xl shadow-lg mt-4">
-            <p class="font-bold text-center mb-2">Test Accounts:</p>
+        <div class="max-w-md w-full bg-white p-6 sm:p-8 rounded-xl shadow-lg mt-4">
+            <p class="font-bold text-center mb-2 text-gray-400">Test Accounts:</p>
             <div class="text-center">
-                <p><span class="font-semibold">Admin:</span> Admin&#64;test.com / 1234admin</p>
-                <p><span class="font-semibold">User:</span> User&#64;test.com / 1234user</p>
+                <p class="text-gray-400"><span class="font-semibold">Admin:</span> Admin&#64;test.com / 1234admin</p>
+                <p class="text-gray-400"><span class="font-semibold">User:</span> User&#64;test.com / 1234user</p>
             </div>
         </div>
     </div>
+
+    <!-- Footer -->
+    <!-- Footer -->
+    <footer class="w-full bg-white p-4 sm:p-6 border-t border-gray-200">
+        <div class="flex justify-center space-x-6 text-gray-600 text-sm">
+            <a href="#" class="hover:text-CustomBlue1 hover:underline">About us</a>
+            <a href="#" class="hover:text-CustomBlue1 hover:underline">Docs</a>
+            <a href="#" class="hover:text-CustomBlue1 hover:underline">Author</a>
+            <a href="#" class="hover:text-CustomBlue1 hover:underline">Contact Us</a>
+            <a href="#" class="hover:text-CustomBlue1 hover:underline">Privacy</a>
+            <a href="#" class="hover:text-CustomBlue1 hover:underline">License</a>
+        </div>
+        <div class="flex justify-center space-x-4 mt-4 text-gray-600 text-xl">
+            <a href="#" class="hover:text-CustomBlue1">
+                <fa-icon [icon]="faInstagram"></fa-icon>
+            </a>
+            <a href="#" class="hover:text-CustomBlue1">
+                <fa-icon [icon]="faFacebook"></fa-icon>
+            </a>
+            <a href="#" class="hover:text-CustomBlue1">
+                <fa-icon [icon]="faTwitter"></fa-icon>
+            </a>
+            <a href="#" class="hover:text-CustomBlue1">
+                <fa-icon [icon]="faGithub"></fa-icon>
+            </a>
+            <a href="#" class="hover:text-CustomBlue1">
+                <fa-icon [icon]="faYoutube"></fa-icon>
+            </a>
+        </div>
+    </footer>
+
 </div>

@@ -1,9 +1,11 @@
 import { Component, AfterViewInit } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faEnvelope, faLock, faUser, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+import { faInstagram, faFacebook, faTwitter, faGithub, faYoutube } from '@fortawesome/free-brands-svg-icons';  // Ensure the import is correct
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common'; 
 import { RouterModule, Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-login',
@@ -20,6 +22,14 @@ export class LoginComponent implements AfterViewInit {
   faUser = faUser;
   faEye = faEye;
   faEyeSlash = faEyeSlash;
+
+  // Add social media icons
+  faInstagram = faInstagram;
+  faFacebook = faFacebook;
+  faTwitter = faTwitter; // Note: Twitter icon is still referenced as faTwitter
+  faGithub = faGithub;
+  faYoutube = faYoutube;
+
   passwordVisible: boolean = false;
   errorMessage: string = '';
   rememberMe: boolean = false;
