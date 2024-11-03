@@ -127,11 +127,13 @@ export class LoginComponent implements AfterViewInit, OnInit {
       } else if (email === 'Admin@test.com' && password === '1234admin') {
         this.saveCredentials(email, password);
         localStorage.setItem('isAuthenticated', 'true');
+        localStorage.setItem('userType', 'admin'); // Save userType
         this.router.navigate(['/layout/dashboard'], { queryParams: { user: 'admin' } });
         return true;
       } else if (email === 'User@test.com' && password === '1234user') {
         this.saveCredentials(email, password);
         localStorage.setItem('isAuthenticated', 'true');
+        localStorage.setItem('userType', 'user'); // Save userType
         this.router.navigate(['/layout/dashboard'], { queryParams: { user: 'user' } });
         return true;
       } else {
@@ -140,9 +142,9 @@ export class LoginComponent implements AfterViewInit, OnInit {
       }
     }
   
-    // If `isBrowser` is false, return `false` to handle that path
     return false;
   }
+  
   
 
   onSubmit() {
