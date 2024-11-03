@@ -1,18 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { IconModule } from '@coreui/icons-angular'; // Corrected import
+import { navItems } from './nav-items'; // Adjust the path if necessary
 
 @Component({
   selector: 'app-side-nav',
-  standalone: true, // Mark as standalone
-  imports: [CommonModule, RouterModule], // Import necessary modules here
   templateUrl: './side-nav.component.html',
-  styleUrls: ['./side-nav.component.scss']
+  styleUrls: ['./side-nav.component.scss'],
+  standalone: true,
+  imports: [CommonModule, RouterModule, IconModule], // Use IconModule
+  schemas: [CUSTOM_ELEMENTS_SCHEMA] // To handle custom elements like c-icon
 })
 export class SideNavComponent {
-  handleLinkClick(linkName: string) {
-    console.log(`${linkName} link clicked`);
-    // No redirect logic here, just logging for now
-  }
+  public navItems = navItems;
 }
-

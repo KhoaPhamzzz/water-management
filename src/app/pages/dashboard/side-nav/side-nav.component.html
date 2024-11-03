@@ -1,8 +1,23 @@
 <!-- side-nav.component.html -->
 <nav class="side-nav">
     <ul>
-        <li><a routerLink="/layout/overview">Overview</a></li>
-        <li><a routerLink="/layout/settings">Settings</a></li>
-        <li><a routerLink="/layout/profile">Profile</a></li>
+        <li *ngFor="let item of navItems">
+            <a [routerLink]="item.url">
+                <c-icon *ngIf="item.iconComponent" [icon]="item.iconComponent"></c-icon>
+                {{ item.name }}
+                <span *ngIf="item.badge" class="badge" [ngClass]="'badge-' + item.badge.color">{{ item.badge.text
+                    }}</span>
+            </a>
+
+            <!-- Render child items if they exist -->
+            <ul *ngIf="item.children">
+                <li *ngFor="let child of item.children">
+                    <a [routerLink]="child.url">
+                        <c-icon *ngIf="child.icon" [icon]="child.icon"></c-icon>
+                        {{ child.name }}
+                    </a>
+                </li>
+            </ul>
+        </li>
     </ul>
 </nav>
