@@ -1,11 +1,24 @@
-<div class="welcome-message">
-    <h1>Welcome, {{ userType === 'admin' ? 'Admin' : 'User' }}!</h1>
-    <h1 class="text-red-700">Testing</h1>
-    <!-- Logout Button with Tailwind CSS -->
-    <button
-        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out"
-        (click)="logout()">
-        Logout
-    </button>
+<!-- Main Dashboard Container -->
+<div class="dashboard-container">
+    <app-side-nav></app-side-nav> <!-- Sidebar Navigation on the Left -->
 
+    <!-- Main Content Area -->
+    <div class="dashboard-content">
+        <!-- Welcome Message -->
+        <div class="welcome-message">
+            <h1>Welcome, {{ userType === 'admin' ? 'Admin' : 'User' }}!</h1>
+            <h1 class="text-red-700">Testing</h1>
+            <button
+                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out"
+                (click)="logout()">
+                Logout
+            </button>
+        </div>
+
+        <!-- Dashboard Content -->
+        <div class="dashboard-content-page">
+            <h2>Dashboard Content Page</h2>
+            <p>Welcome to the dashboard content area. Customize this content as needed.</p>
+        </div>
+    </div>
 </div>

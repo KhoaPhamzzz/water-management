@@ -4,13 +4,16 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        CustomBlue1: "#092e3f",
-        CustomBlue2: "#164a64",
+        CustomBlue1: "#3c7c99",
+        CustomBlue2: "#20526b",
         CustomBlue3: "#13465d",
-        // Darker shades for hover effect
         CustomBlue1Dark: "#061d2c",
         CustomBlue2Dark: "#11374a",
         CustomBlue3Dark: "#0e3344",
+      },
+      fontFamily: {
+        rubikWetPaint: ['"Rubik Wet Paint"', "cursive"], // Add Rubik Wet Paint font family
+        roboto: ["Roboto", "sans-serif"], // Add Roboto font
       },
     },
   },

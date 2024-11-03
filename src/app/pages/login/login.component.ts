@@ -112,8 +112,8 @@ export class LoginComponent implements AfterViewInit {
       signupForm.classList.remove('hidden');
       sliderTab.style.left = '50%';
       loginBtn.classList.remove('text-white');
-      loginBtn.classList.add('text-black');
-      signupBtn.classList.remove('text-black');
+      loginBtn.classList.add('text-gray-400');
+      signupBtn.classList.remove('text-gray-400');
       signupBtn.classList.add('text-white');
       this.title = 'Sign up';
     };
@@ -124,8 +124,8 @@ export class LoginComponent implements AfterViewInit {
       loginForm.classList.remove('hidden');
       sliderTab.style.left = '0%';
       signupBtn.classList.remove('text-white');
-      signupBtn.classList.add('text-black');
-      loginBtn.classList.remove('text-black');
+      signupBtn.classList.add('text-gray-400');
+      loginBtn.classList.remove('text-gray-400');
       loginBtn.classList.add('text-white');
       this.title = 'Welcome Back!';
     };

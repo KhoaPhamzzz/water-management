@@ -1,8 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router'; // Import Router along with ActivatedRoute
+import { ActivatedRoute, Router, RouterModule } from '@angular/router'; // Import RouterModule with Router and ActivatedRoute
+import { SideNavComponent } from './side-nav/side-nav.component';
+
 
 @Component({
   selector: 'app-dashboard',
+  standalone: true,
+  imports: [RouterModule, SideNavComponent], // Import SideNavComponent and RouterModule directly
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
@@ -15,14 +19,16 @@ export class DashboardComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.route.queryParams.subscribe(params => {
-      this.userType = params['user'] || 'user'; // Set userType based on URL parameter
-    });
-  }
+    const isAuthenticated = localStorage.getItem('isAuthenticated') === 'true';
+    if (!isAuthenticated) {
+        console.log('Redirecting to login from DashboardComponent');
+        this.router.navigate(['/login']); // Ensure this logic is not incorrectly triggered
+    }
+}
 
   logout() {
-    localStorage.removeItem('isAuthenticated');  // Clear authentication flag
-    this.router.navigate(['/login']);  // Redirect to login page
+    console.log('Logout function called');
+    localStorage.removeItem('isAuthenticated'); // Clear authentication flag
+    this.router.navigate(['/login']); // Redirect to login page
   }
-  
 }
