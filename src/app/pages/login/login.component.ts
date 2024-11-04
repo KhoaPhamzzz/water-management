@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, OnInit, Inject, PLATFORM_ID } from '@angular/core';
+import { Component, AfterViewInit, OnInit, Inject, PLATFORM_ID, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faEnvelope, faLock, faUser, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
@@ -6,9 +6,11 @@ import { faInstagram, faFacebook, faTwitter, faGithub, faYoutube } from '@fortaw
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-login',
   standalone: true,
+  schemas: [CUSTOM_ELEMENTS_SCHEMA], // Add this line
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
   imports: [CommonModule, FontAwesomeModule],

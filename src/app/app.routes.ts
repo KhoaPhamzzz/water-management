@@ -3,6 +3,8 @@ import { LoginComponent } from './pages/login/login.component';
 import { LayoutComponent } from './pages/layout/layout.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { AuthGuard } from './guards/auth.guard';
+import { SettingComponent } from './pages/setting/setting.component';
+
 
 export const routes: Routes = [
     {
@@ -22,15 +24,15 @@ export const routes: Routes = [
                 component: DashboardComponent
             },
             {
-                path: 'overview',
-                component: DashboardComponent // Or another component if separate
-            },
-            {
                 path: 'settings',
-                component: DashboardComponent // Or another component if separate
+                component: SettingComponent // Add the settings route
             },
             {
                 path: 'profile',
+                component: DashboardComponent // Or another component if separate
+            }, 
+            {
+                path: 'colors',
                 component: DashboardComponent // Or another component if separate
             }
         ]

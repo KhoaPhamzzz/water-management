@@ -1,8 +1,23 @@
 /* Import Google Font */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Rubik+Wet+Paint&display=swap');
+@import 'boxicons/css/boxicons.min.css';
+
+
+
 
 /* You can add global styles to this file, and also import other style files */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* styles.css or app.component.scss */
+@media (max-width: 768px) {
+    .app-side-nav {
+      display: none; /* Hide the side nav on smaller screens */
+    }
+    .main-content {
+      margin-left: 0; /* Remove the margin when the side nav is hidden */
+    }
+  }
+  

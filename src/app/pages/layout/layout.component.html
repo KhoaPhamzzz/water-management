@@ -1,9 +1,22 @@
 <!-- layout.component.html -->
-<div class="layout-wrapper">
-    <!-- Maybe some header or sidebar content here -->
+<div class="flex flex-col min-h-screen bg-lime-100">
+    <!-- Wrapper to handle the layout -->
+    <div class="flex flex-1">
+        <!-- Side Navigation Component -->
+        <app-side-nav class="bg-gray-800 w-64 h-full fixed lg:relative lg:block hidden" id="sidebar1"></app-side-nav>
 
-    <!-- Child routes like DashboardComponent will be displayed here -->
-    <router-outlet></router-outlet>
+        <!-- Main Content Area -->
+        <div class="flex-1 flex flex-col transition-all duration-300">
+            <!-- Header -->
+            <app-header class="bg-gray-100shadow-sm sticky top-0 z-10"></app-header>
 
-    <!-- Maybe some footer content here -->
+            <!-- Body with Router Outlet -->
+            <div class="flex-1 overflow-auto">
+                <router-outlet></router-outlet>
+            </div>
+
+            <!-- Footer -->
+            <app-footer class="bg-gray-100"></app-footer>
+        </div>
+    </div>
 </div>
